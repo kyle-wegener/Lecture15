@@ -11,7 +11,43 @@
             // DOM title example
             // Event Handler Examples
         -->
+        <script>
+            // let dogName = "Stark";
+            // console.log(dogName);
+
+            // console.log(window.location);
+
+            // window.alert("OMG! SOMETHING HAPPENED!");
+
+            // let response = window.confirm("Click OK if youre having a great time");
+            // console.log("Are they having a great time? - " + response);
+
+            // console.log(document.title);
+
+            function changeArnoldTag() {
+                let arnoldText = document.getElementById("arnold-text");
+                arnoldText.innerText += " ADOPTED!!";
+                arnoldText.setAttribute("style", "background-color: red;");
+            }
+
+            function changeLucyTag() {
+                let lucyText = document.getElementById("lucy-text");
+                lucyText.innerText += " ADOPTED!!";
+                lucyText.setAttribute("style", "background-color: red;");
+            }
+
+            function handleOnMouseEnter(elementId) {
+                let myElement = document.getElementById(elementId);
+                myElement.setAttribute("style", "background-color: green;");
+            }
+
+            function handleOnMouseLeave(elementId) {
+                let myElement = document.getElementById(elementId);
+                myElement.setAttribute("style", "background-color: none;");
+            }
+        </script>
         <!-- Including JS file in HTML -->
+        <script src="simple-js.js"></script>
     </head>
     <body>
         <h1>Welcome To Our Pet Store</h1>
@@ -19,16 +55,36 @@
         <section>
             <img src="dog.jpeg" style="max-width: 300px;"/>
             <p id="arnold-text">Arnold</p>
-            <button id="arnold-button" class="pet-adopt-button">Adopt Me!</button>
+            <script>
+                // let element = document.getElementById("arnold-text");
+                // console.log(element);
+                // element.innerText = "<h1>Arnold!</h1>";
+            </script>
+            
+            <button
+                onmouseover="handleOnMouseEnter('arnold-button')"
+                onmouseout="handleOnMouseLeave('arnold-button')"
+                id="arnold-button"
+                class="pet-adopt-button">Adopt Me!</button>
+            <script>
+                let arnoldAdoptBtn = document.querySelector(".pet-adopt-button");
+                arnoldAdoptBtn.addEventListener('click', changeArnoldTag);
+            </script>
             <!-- Event Listener Example -->
             <!-- DOM getElementById example -->
             <!-- DOM querySelector example -->
+            
         </section>
         <br />
         <section>
             <img src="cat.png" style="max-width: 300px;"/>
             <p id="lucy-text">Lucy</p>
-            <button id="lucy-button" class="pet-adopt-button">Adopt Me!</button>
+            <button
+                onmouseover="handleOnMouseEnter('lucy-button')"
+                onmouseout="handleOnMouseLeave('lucy-button')"
+                onclick="changeLucyTag()"
+                id="lucy-button"
+                class="pet-adopt-button">Adopt Me!</button>
         </section>
         <!-- DOM querySelectorAll example -->
     </body>
